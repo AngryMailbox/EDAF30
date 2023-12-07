@@ -10,7 +10,11 @@ class UserTable
 public:
     UserTable();
     UserTable(const std::string &);
-    ~UserTable() { delete[] users; }
+    ~UserTable()
+    {
+        delete[] users;
+    }
+    // UserTable(const UserTable &) = delete; // This makes UserTable non-copyable
 
     void addUser(const User &);
     User find(int) const;
@@ -32,6 +36,6 @@ private:
     int pos{0};
     User *users;
 
-    friend int testFindNbr(const UserTable ut);
+    friend int testFindNbr(const UserTable &ut);
 };
 #endif

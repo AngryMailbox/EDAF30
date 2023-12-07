@@ -11,7 +11,7 @@ class User {
 public:
     User() :cardNbr{0},name{"default"}{}
     User(int c, std::string n) :cardNbr{c},name{n} {}
-    //~User() {cardNbr=-2; name="--------------------";} // overwrite values for security reasons
+    ~User() {cardNbr=-2; name="--------------------";} // overwrite values for security reasons
     User(const User& u) =default;
     User& operator=(const User&) =default;
     int getCardNbr() const {return cardNbr;}

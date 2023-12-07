@@ -10,5 +10,6 @@ int main()
     cout << userTable.find(21330) << endl;
     cout << userTable.find(21331) << endl;
     cout << userTable.find("Jens Holmgren") << endl;
+    testFindNbr(userTable);
     return 0;
 }

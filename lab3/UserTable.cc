@@ -45,7 +45,7 @@ void UserTable::addUser(const User &newUser)
     // 2. skapa lucka i vektorn
     for (int i = nbrUsers; i > pos; --i)
     {
-        users[i] = users[i - 1]; // FEL: ska flyttas ett steg till höger (saknades tidigare)
+        users[i] = users[i - 1];
     }
 
     // 3. stoppa in den nya användaren i luckan
@@ -97,9 +97,9 @@ User UserTable::find(std::string name) const
 
 void UserTable::ensureCapacity(int s)
 {
-    if (s >= capacity) // FEL: Logiken var fel, skulle vara >= istället för >
+    if (s > capacity)
     {
-        while (s >= capacity)
+        while (s > capacity)
         {
             capacity *= 4;
         }
@@ -124,13 +124,14 @@ void UserTable::print(std::ostream &os) const
     os << "Total: " << getNbrUsers() << std::endl;
     file.close();
 }
+
 /**
  * Testmetod för binärsökningen:
  * går igenom alla användare och kollar att deras kortnummer kan sökas upp.
  * Om något kortnummer inte kunde sökas upp returneras detta. Annars, om
  * alla sökningar lyckades, returneras 0.
  */
-int testFindNbr(const UserTable ut)
+int testFindNbr(const UserTable &ut) // FEL: glömde att ut är en referens
 {
     for (int i = 0; i < ut.nbrUsers; i++)
     {
