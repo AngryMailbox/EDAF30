@@ -131,7 +131,7 @@ void UserTable::print(std::ostream &os) const
  * Om något kortnummer inte kunde sökas upp returneras detta. Annars, om
  * alla sökningar lyckades, returneras 0.
  */
-int testFindNbr(const UserTable &ut) // FEL: glömde att ut är en referens
+int testFindNbr(const UserTable ut) // FEL: glömde att ut är en referens
 {
     for (int i = 0; i < ut.nbrUsers; i++)
     {

@@ -6,19 +6,19 @@
             "type": "cppdbg",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "program": "${workspaceFolder}/lab3/userprog.exe",
+            "program": "${workspaceFolder}/inl/concat.exe",
             "MIMode": "gdb",
             "miDebuggerPath": "c:/msys64/mingw64/bin/gdb.exe",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
                     "text": "-enable-pretty-printing",
-                    "ignoreFailures": true,
+                    "ignoreFailures": false,
                 },
                 {
                     "description": "Set Disassembly Flavor to Intel",
                     "text": "-gdb-set disassembly-flavor intel",
-                    "ignoreFailures": true
+                    "ignoreFailures": false
                 }
             ],
             "preLaunchTask": "echo"

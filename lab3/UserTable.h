@@ -36,6 +36,6 @@ private:
     int pos{0};
     User *users;
 
-    friend int testFindNbr(const UserTable &ut);
+    friend int testFindNbr(const UserTable ut);
 };
 #endif
