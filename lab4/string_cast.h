@@ -6,21 +6,20 @@
 template <typename T>
 T string_cast(std::string s)
 {
-    std::istringstream in;
-    in.str(s);
+    std::stringstream in(s);
     T ret;
     try
     {
         in >> ret;
-        if (in.fail())
+        if (in.fail() || !in.eof())
         {
-            throw std::invalid_argument("");
+            throw std::exception();
         }
     }
     catch (std::exception &e)
     {
-        std::string t = typeid(ret).name();
-        throw std::invalid_argument("Cant cast from a string to " + t);
+        std::string type = typeid(ret).name();
+        throw std::invalid_argument("Cant cast from a string to " + type);
     }
     return ret;
 }

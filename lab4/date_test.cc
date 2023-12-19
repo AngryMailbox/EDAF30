@@ -16,69 +16,69 @@ using std::setw;
  */
 void print(Date &d)
 {
-	cout << d;
-	cin >> d;
+    cout << d;
+    cin >> d;
 }
 
 void test1()
 {
 
-	Date testDate(2020, 10, 19);
+    Date testDate(2020, 10, 19);
 
-	std::stringstream ss;
-	ss << testDate;
+    std::stringstream ss;
+    ss << testDate;
 
-	assert(ss.str() == "2020-10-19");
-	cout << "Test 1 OK" << endl;
+    assert(ss.str() == "2020-10-19");
+    cout << "Test 1 OK" << endl;
 }
 
 void test2()
 {
 
-	Date testDate(2020, 10, 11);
+    Date testDate(2020, 10, 11);
 
-	std::stringstream ss;
-	ss << "2020-10-11";
-	ss >> testDate;
+    std::stringstream ss;
+    ss << "2020-10-11";
+    ss >> testDate;
 
-	assert(ss.str() == "2020-10-11");
-	cout << "Test 2 OK" << endl;
+    assert(ss.str() == "2020-10-11");
+    cout << "Test 2 OK" << endl;
 }
 
 void test3()
 {
 
-	Date testDate(2020, 10, 11);
+    Date testDate(2020, 10, 11);
 
-	for (int i = 0; i < 31; i++)
-	{
-		testDate.next();
-	}
+    for (int i = 0; i < 31; i++)
+    {
+        testDate.next();
+    }
 
-	std::stringstream ss;
-	ss << testDate;
+    std::stringstream ss;
+    ss << testDate;
 
-	assert(ss.str() == "2020-11-11");
-	cout << "Test 3 OK" << endl;
+    assert(ss.str() == "2020-11-11");
+    cout << "Test 3 OK" << endl;
 }
 
 void test4()
 {
-	Date testDate(2020, 10, 11);
+    Date testDate(2020, 10, 11);
 
-	std::stringstream ss;
-	ss << "hej-10-32";
-	ss >> testDate;
+    std::stringstream ss;
+    ss << "hej-10-32";
+    ss >> testDate;
 
-	assert(ss.rdstate() == std::ios_base::failbit);
-	cout << "Test 4 OK" << endl;
+    assert(ss.rdstate() == std::ios_base::failbit);
+    cout << "Test 4 OK" << endl;
 }
 
 int main()
 {
-	test1();
-	test2();
-	test3();
-	test4();
-	cout << "All tests passed!" << endl;
+    test1();
+    test2();
+    test3();
+    test4();
+    cout << "All tests passed!" << endl;
 }

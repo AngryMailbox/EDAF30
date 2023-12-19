@@ -15,16 +15,15 @@ void test()
     {
         int i = string_cast<int>("123");
         double d = string_cast<double>("12.34");
-        Date a = string_cast<Date>("2015-01-10");
-        Date b{2015, 01, 10};
+        Date a = string_cast<Date>("2012-12-10");
+        Date b{2012, 12, 10};
 
         cout << "i = " << i << endl;
         assert(i == 123);
         cout << "d = " << d << endl;
         assert(d == 12.34);
 
-        cout << "a = " << toString(a) << endl;
-        cout << "b = " << toString(b) << endl;
+        assert(toString(a) == toString(b));
         cout << "Tests passed!" << endl;
     }
     catch (std::invalid_argument &e)

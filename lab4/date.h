@@ -6,12 +6,12 @@ using namespace std;
 class Date
 {
 public:
-	Date();					   // today's date
-	Date(int y, int m, int d); // yyyy-mm-dd
-	int getYear() const;	   // get the year
-	int getMonth() const;	   // get the month
-	int getDay() const;		   // get the day
-	void next();			   // advance to next day
+	Date();								// today's date
+	Date(int year, int month, int day); // yyyy-mm-dd
+	int getYear() const;				// get the year
+	int getMonth() const;				// get the month
+	int getDay() const;					// get the day
+	void next();						// advance to next day
 
 	// Define the operator<< for output
 	friend ostream &operator<<(ostream &os, const Date &d);

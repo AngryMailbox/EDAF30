@@ -13,12 +13,7 @@ Date::Date()
 	day = locTime->tm_mday;
 }
 
-Date::Date(int y, int m, int d)
-{
-	year = y;
-	month = m;
-	day = d;
-}
+Date::Date(int year, int month, int day) : year(year), month(month), day(day) {}
 
 int Date::getYear() const
 {
@@ -50,29 +45,20 @@ void Date::next()
 	}
 }
 
-ostream &operator<<(ostream &os, const Date &d)
+std::ostream &operator<<(std::ostream &os, const Date &d)
 {
-	os << setw(4) << setfill('0') << d.getYear() << '-'
-	   << setw(2) << setfill('0') << d.getMonth() << '-'
-	   << setw(2) << setfill('0') << d.getDay();
-
+	os << d.year << "-" << d.month << "-" << d.day;
 	return os;
 }
 
-istream &operator>>(istream &is, Date &d)
+std::istream &operator>>(std::istream &is, Date &d)
 {
-	int year, month, day;
-
 	char dash1, dash2;
-	is >> year >> dash1 >> month >> dash2 >> day;
+	is >> d.year >> dash1 >> d.month >> dash2 >> d.day;
 
-	if (is.good() && dash1 == '-' && dash2 == '-')
+	if (is.fail() || dash1 != '-' || dash2 != '-')
 	{
-		d = Date(year, month, day);
-	}
-	else
-	{
-		is.setstate(ios_base::failbit);
+		is.setstate(std::ios_base::failbit);
 	}
 
 	return is;
