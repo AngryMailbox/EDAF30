@@ -6,7 +6,7 @@
             "type": "cppdbg",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "program": "${workspaceFolder}/inl/concat.exe",
+            "program": "${workspaceFolder}/lab4/main.exe",
             "MIMode": "gdb",
             "miDebuggerPath": "c:/msys64/mingw64/bin/gdb.exe",
             "setupCommands": [
